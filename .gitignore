@@ -1,0 +1,88 @@
+# =====================
+# Environment variables
+# =====================
+.env
+.env.*
+*.env
+
+# =====================
+# Python
+# =====================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+.eggs/
+dist/
+build/
+.venv/
+venv/
+ENV/
+env/
+pip-wheel-metadata/
+
+# =====================
+# Logs & runtime files
+# =====================
+*.log
+logs/
+*.pid
+*.lock
+
+# =====================
+# Jupyter / Experiments
+# =====================
+.ipynb_checkpoints/
+notebooks/.ipynb_checkpoints/
+
+# =====================
+# Node.js (if used)
+# =====================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# =====================
+# Docker
+# =====================
+docker-compose.override.yml
+*.tar
+
+# =====================
+# OS / Editor files
+# =====================
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# =====================
+# Secrets & API keys
+# =====================
+secrets/
+keys/
+*.pem
+*.key
+*.crt
+*.p12
+
+# =====================
+# Trading bot specific
+# =====================
+data/
+historical_data/
+backtests/
+results/
+models/
+checkpoints/
+
+# =====================
+# Cache / temp
+# =====================
+.cache/
+tmp/
+temp/
