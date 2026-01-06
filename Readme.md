@@ -1,7 +1,7 @@
 # Trading Bot Plan v1 (Research Prototype)
 
 > **Scope:** v1 is a **research + paper-trading prototype** for **Bitget USDT-M futures** on **15-minute candles** using **market orders** and **model-gated entries** (long/short/no-trade).  
-> **Goal:** a pipeline you can trust: data → features → labels → model → backtest (with costs) → paper trade.
+> **Goal:** a pipeline you can trust: **data → features → labels → model → backtest (with costs) → paper trade**.
 
 ⚠️ Not financial advice. With leverage, bad risk controls = fast liquidation.
 
