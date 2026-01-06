@@ -1,0 +1,13 @@
+timeframe: 15m
+max_holding_hours: 6
+labeling:
+  tp_atr_mult: 1.2
+  sl_atr_mult: 1.0
+  horizon_candles: 24
+costs:
+  taker_fee_bps: 6
+  slippage_bps_major: 3
+  slippage_bps_alt: 5
+risk:
+  risk_per_trade_pct: 1.0
+  daily_stop_r: 3
