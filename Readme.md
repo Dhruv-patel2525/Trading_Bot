@@ -28,17 +28,18 @@
 
 ```mermaid
 flowchart TD
-  A[Trading spec\nBitget USDT-M, 10x, market] --> B[Costs model\nfees + slippage]
-  B --> C[Data sourcing\nlong history elsewhere + Bitget recent]
-  C --> D[Clean/align OHLCV\n15m, gaps, timestamps]
-  D --> E[Features (causal)\nreturns, ATR, vol, volume, trend]
-  E --> F[Triple-barrier labels\nSL/TP + 6h timeout + costs]
-  F --> G[Walk-forward splits\npurge/embargo]
-  G --> H[Train baseline\nLightGBM/XGBoost]
-  H --> I[Sequence model\nCNN/LSTM then Transformer]
-  I --> J[Model gate\ntrade only if prob>threshold]
-  J --> K[Backtest\nfees+slippage+risk rules]
+  A[Trading spec - Bitget USDT-M, 10x, market, intraday] --> B[Costs model - taker fee + slippage bps]
+  B --> C[Data sourcing - Binance long history + Bitget recent window]
+  C --> D[Clean/align OHLCV - 15m, gaps, timestamps]
+  D --> E[Features - causal returns, ATR, vol, volume, trend]
+  E --> F[Triple-barrier labels - ATR SL/TP + 6h timeout + costs]
+  F --> G[Walk-forward splits - purge/embargo]
+  G --> H[Train baseline - XGBoost/LightGBM]
+  H --> I[Train sequence model - CNN/LSTM then Transformer]
+  I --> J[Model gate - trade only if prob>threshold]
+  J --> K[Backtest with intrabar SL/TP - fees+slippage+daily stop]
   K --> L{Robust net PnL?}
   L -- No --> F
-  L -- Yes --> M[Paper trade]
+  L -- Yes --> M[Paper trade on Bitget - same pipeline]
+  M --> N[Small live deploy - 1% risk, 3R daily stop, kill switch]
 ```
