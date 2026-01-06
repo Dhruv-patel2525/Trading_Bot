@@ -1,0 +1,10 @@
+exchange: bitget
+product_type: usdt-futures
+timeframe: 15m
+days: 90
+limit: 1000
+symbols:
+  - BTCUSDT
+  - ETHUSDT
+out_root: data/raw
+rate_limit_sleep_sec: 0.07
