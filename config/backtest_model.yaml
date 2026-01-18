@@ -1,0 +1,25 @@
+run_dir: latest
+runs_root: runs
+
+timeframe: 15m
+symbols: [BTCUSDT, ETHUSDT]
+
+# Gate hard. Your model wants to trade too often.
+prob_threshold: 0.75
+
+execution:
+  horizon_bars: 24
+  tp_mult: 1.2
+  sl_mult: 1.0
+  rt_cost_bps: 30.0 # same as labeling
+  tie_policy: worst # OHLC ambiguity: worst-case within same candle
+
+risk:
+  starting_equity: 100000
+  risk_per_trade_pct: 0.25 # 0.25% per trade (org-grade)
+  daily_max_loss_pct: 1.0 # 1% daily stop
+  max_leverage: 10
+  one_position: true
+
+output:
+  subdir: backtests

@@ -7,6 +7,13 @@
 
 ---
 
+main file
+uv run python main.py pipeline \
+ --ingest-config config/ingest.yaml \
+ --dataset-config config/strategy.yaml \
+ --train-config config/train.yaml \
+ --backtest-config config/backtest_model.yaml
+
 ## Locked decisions (v1)
 
 - Exchange/market: **Bitget USDT-M perpetual futures**

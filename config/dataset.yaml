@@ -1,0 +1,23 @@
+exchange: bitget
+product_type: usdt-futures
+timeframe: 15m
+symbols:
+  - BTCUSDT
+  - ETHUSDT
+
+raw_root: data/raw
+features_root: data/processed/features
+runs_root: runs
+
+# feature params
+atr_period: 14
+
+# labeling params (Phase 1 defaults for BTC/ETH)
+horizon_bars: 24
+tp_mult: 1.2
+sl_mult: 1.0
+rt_cost_bps: 30.0
+
+# tie handling inside same candle (OHLC ambiguity)
+# options: "flat" (label 0) or "worst" (count as SL/loser)
+tie_policy: flat

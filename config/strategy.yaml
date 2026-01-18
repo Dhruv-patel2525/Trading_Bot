@@ -1,0 +1,24 @@
+exchange: bitget
+product_type: usdt-futures
+symbols: [BTCUSDT, ETHUSDT]
+raw_root: data/raw
+features_root: data/processed/features
+runs_root: runs
+
+timeframe: 15m
+
+horizon:
+  unit: hours
+  value: 6
+
+barriers:
+  mode: atr
+  atr:
+    period: 14
+    tp_mult: 1.2
+    sl_mult: 1.0
+
+costs:
+  rt_cost_bps: 30.0
+
+tie_policy: flat

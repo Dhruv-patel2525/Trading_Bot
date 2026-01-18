@@ -1,0 +1,25 @@
+run_dir: latest
+runs_root: runs
+timeframe: 15m
+symbols: [BTCUSDT, ETHUSDT]
+
+target_col: y
+
+# Your label horizon used in dataset build
+horizon_bars: 24
+embargo_bars: 24
+
+# Time split (simple + honest)
+split:
+  train_frac: 0.70
+  val_frac: 0.15
+  test_frac: 0.15
+
+model:
+  type: sklearn_hgb
+  max_iter: 400
+  learning_rate: 0.05
+  max_depth: 6
+  l2_regularization: 1.0
+  min_samples_leaf: 30
+  random_state: 42

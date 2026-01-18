@@ -4,6 +4,7 @@ import argparse
 from dataclasses import dataclass
 from pathlib import Path
 from datetime import datetime, timezone
+from typing import List, Optional
 import yaml
 
 from dotenv import load_dotenv
@@ -31,7 +32,7 @@ def save_resolved_config(run_dir: Path, cfg: dict) -> None:
     )
 
 
-def main() -> None:
+def main(argv: Optional[List[str]] = None) -> None:
     load_dotenv()  # reads .env
 
     ap = argparse.ArgumentParser()
@@ -43,7 +44,7 @@ def main() -> None:
         default=None,
         help="Optional: fetch a single symbol (overrides symbols list)",
     )
-    args = ap.parse_args()
+    args = ap.parse_args(argv)
 
     cfg = load_yaml(Path(args.config))
 
@@ -83,6 +84,8 @@ def main() -> None:
             granularity=tf,
             product_type=cfg.get("product_type", "usdt-futures"),
             limit=int(cfg.get("limit", 1000)),
+            mode=str(cfg.get("mode", "auto")),
+            sleep_sec=float(cfg.get("rate_limit_sleep_sec", 0.0)),
         )
         df = fetcher.fetch_backwards(candle_cfg, end_ms=end_ms, target_bars=target_bars)
 
